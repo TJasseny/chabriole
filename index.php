@@ -9,5 +9,6 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Construction Zone
+ * @package Chabriole
  */
+get_header(); 
