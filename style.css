@@ -5,12 +5,31 @@ Description: Thème développé pour le festival de la Chabriole.
 Version: 0.0
 Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
 */
+.mobile-nav {
+  text-align: right;
+}
+.icon-menu {
+  position:relative;
+  top:-60px;
+  right:16px;
+}
+#logo-min {
+  text-align: left;
+}
+.burger {
+  -webkit-appearance:none;
+  position: relative;
+  top: -65px;
+  right:18px;
+}
+.burger:before
+{
+  content:'menu';
+}
 
-nav {
-  height: 70px;
-  width: 100%;
-  /*background-color: yellow;*/
-  margin: 0;
+.burger:checked:before
+{
+  content:'fermer';
 }
 
 .mobile-nav {
@@ -21,6 +40,32 @@ nav {
   background-size: cover;
   border-bottom: solid 5px #B31B2A;
 }
+
+.icon-menu {
+  font-family: fontawesome;
+  font-size: 34px;
+  margin:0;
+  margin-bottom: -10px;
+  max-height: 35px;
+}
+
+.container-nav {
+  height: 0;
+  overflow:hidden;
+  transition: height 0.4s ease-in;
+}
+.burger:checked ~ .container-nav {
+  height:auto;
+}
+/*
+nav {
+  height: 70px;
+  width: 100%;
+  /*background-color: yellow;*/
+  /*margin: 0;
+}
+
+
 
 .menu-icon {
 position: absolute;
@@ -52,3 +97,4 @@ right:16px;
 #toggle-menu, #navContent, #boutonMenuClose {
   display:none;
 }
+*/
