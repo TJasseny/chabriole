@@ -5,22 +5,245 @@ Description: Thème développé pour le festival de la Chabriole.
 Version: 0.0
 Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
 */
+
+/* STYLE GENERAL */
+* {
+  font-family: 'Segoe UI';
+}
+ a {
+   text-decoration: none;
+ }
+
+ a::active {
+   color: #B31B2A;
+ }
+
+ body
+ {
+   margin: 0;
+   padding: 0;
+
+   /* make it look decent enough */
+   background: #232323;
+   color: #333232;
+   font-family: "Avenir Next", "Avenir", sans-serif;
+ }
+
+ a
+ {
+   text-decoration: none;
+   color: #232323;
+
+   transition: color 0.3s ease;
+ }
+
+ a:hover
+ {
+   color: tomato;
+ }
+
+/* STYLE NAVIGATION MOBILE */
+ #logo-mobile {
+   position:fixed;
+ }
+ #nav-mobile {
+   position:fixed;
+   width:100%;
+   z-index: 1;
+ }
+nav, #menu {
+   font-size: 16px;
+   min-height:70px;
+   background-color: #FFCC00;
+   background-image: url(assets/img/bg.jpg);
+   background-size: cover;
+   border-bottom: solid 5px #B31B2A;
+ }
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -30px;
+  left: 270px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  right:-270px;
+  top:-30px;
+
+  background: #333232;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle span p {
+  top: 10px;
+  position: relative;
+  right: 4px;
+  color: #333232;
+}
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 100%;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(0, -100%);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+#menu ul {
+    list-style-type: none;
+}
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ #menu
+{
+  transform: none;
+}
+
+/* STYLE HOMEPAGE */
+.video-bg {
+  filter: brightness(70%);
+}
+.video-bg video {
+  height:100vh;
+  width:100vw;
+  object-fit: cover;
+  object-position: 40%;
+}
+
+.affiche {
+  position: absolute;
+  top: 85px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height:20px;
+  color: #fff;
+}
+
+.logo-header h1 img {
+  width:240px;
+}
+
+.date {
+  color : #FFCC00;
+  font-size:24px;
+  font-weight: bold;
+}
+
+.artist {
+  font-weight: 900;
+  line-height:20px;
+  font-size: 45px;
+}
+/*
+
 .mobile-nav {
-  text-align: right;
+  display:flex;
 }
 .icon-menu {
-  position:relative;
-  top:-60px;
-  right:16px;
 }
+
 #logo-min {
   text-align: left;
 }
 .burger {
   -webkit-appearance:none;
-  position: relative;
-  top: -65px;
-  right:18px;
 }
 .burger:before
 {
@@ -49,7 +272,7 @@ Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
   max-height: 35px;
 }
 
-.container-nav div nav ul {
+.container-nav nav ul {
   list-style: none;
 }
 .container-nav {
