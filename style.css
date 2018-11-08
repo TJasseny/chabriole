@@ -49,7 +49,12 @@ Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
   max-height: 35px;
 }
 
+.container-nav div nav ul {
+  list-style: none;
+}
 .container-nav {
+  text-align:left;
+  list-style: none;
   height: 0;
   overflow:hidden;
   transition: height 0.4s ease-in;
@@ -57,44 +62,3 @@ Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
 .burger:checked ~ .container-nav {
   height:auto;
 }
-/*
-nav {
-  height: 70px;
-  width: 100%;
-  /*background-color: yellow;*/
-  /*margin: 0;
-}
-
-
-
-.menu-icon {
-position: absolute;
-top:12px;
-right:16px;
-}
-
-.mobile-nav label {
-  margin: 0;
-  margin-top:12px;
-}
-.mobile-nav label::before {
-  font-size: 34px;
-  position: absolute;
-  right: 14px;
-}
-
-.mobile-nav label p {
-    font-family: sans-serif;
-    margin-top: 16px;
-    margin-bottom:0;
-    margin-left: 14px;
-}
-
-.mobile-nav * {
-  transition: all 0.4s ease-in;
-}
-
-#toggle-menu, #navContent, #boutonMenuClose {
-  display:none;
-}
-*/

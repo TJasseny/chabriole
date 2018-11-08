@@ -31,34 +31,5 @@
       </div>
 
     <!--
-    <header>
-      <div class="container navbar mobile-nav">
-        <div class="row no-gutters">
-          <div class="col-10" id="logoMin">
-            <img src="wp-content/themes/chabriole/assets/img/logo.png" height="65px"/>
-          </div>
-          <div class="col-2 menu-icon">
-            <form>
-              <label for="menu" class="fa fa-bars" id="boutonMenuOpen"><br/><p id="label_menu">menu</p></label>
-              <label for="fermer" class="fa fa-times" id="boutonMenuClose"><br/><p id="label_menu">fermer</p></label>
-              <input type="checkbox" id="toggle-menu">
-            </form>
-          </div>
-        </div>
-        <div class="container no-gutters" id="navContent">
-          <div class="col-6 offset-3">
-            <img src="wp-content/themes/chabriole/assets/img/logo.png" height="130px"/>
-          </div>
-        <div class="col-12">
-          <nav id="navMobile">
-            <?php // wp_nav_menu(array('theme_location' => 'top')); ?>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <div style="height: 25px; background-color:blue;" class="col-12">
-  </div>
-
     <script type="text/javascript" src="wp-content/themes/chabriole/assets/js/menuMobile.js"></script>
   -->
