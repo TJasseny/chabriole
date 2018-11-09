@@ -10,23 +10,26 @@ Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
 * {
   font-family: 'Segoe UI';
 }
- a {
-   text-decoration: none;
- }
 
- a::active {
+ a::active, a:hover {
+   text-decoration: none;
    color: #B31B2A;
  }
+
+a:visited {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: 900;
+}
 
  body
  {
    margin: 0;
    padding: 0;
-
-   /* make it look decent enough */
-   background: #232323;
    color: #333232;
-   font-family: "Avenir Next", "Avenir", sans-serif;
  }
 
  a
@@ -36,12 +39,9 @@ Chabriole WordPress Theme, Copyright (C) 2018, Thibaud Jasseny (VDEdesign)
 
    transition: color 0.3s ease;
  }
-
- a:hover
- {
-   color: tomato;
- }
-
+.jaune {
+    color : #FFCC00;
+}
 /* STYLE NAVIGATION MOBILE */
  #logo-mobile {
    position:fixed;
@@ -59,9 +59,7 @@ nav, #menu {
    background-size: cover;
    border-bottom: solid 5px #B31B2A;
  }
-
-#menuToggle
-{
+#menuToggle {
   display: block;
   position: relative;
   top: 50px;
@@ -72,15 +70,13 @@ nav, #menu {
   -webkit-user-select: none;
   user-select: none;
 }
-
-#menuToggle input
-{
+#menuToggle input {
   display: block;
   width: 40px;
   height: 32px;
-  position: absolute;
-  top: -30px;
-  left: 270px;
+  position: fixed;
+  top: 18px;
+  right: 12px;
 
   cursor: pointer;
 
@@ -99,9 +95,9 @@ nav, #menu {
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
-  position: relative;
-  right:-270px;
-  top:-30px;
+  position: fixed;
+  right:16px;
+  top:28px;
 
   background: #333232;
   border-radius: 3px;
@@ -115,13 +111,15 @@ nav, #menu {
               opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
+#bar-up
 {
+  top:19px !important;
   transform-origin: 0% 0%;
 }
 
 #menuToggle span:nth-last-child(2)
 {
+  top:37px;
   transform-origin: 0% 100%;
 }
 
@@ -198,10 +196,11 @@ nav, #menu {
 
 /* STYLE HOMEPAGE */
 .video-bg {
-  filter: brightness(70%);
+  filter: brightness(60%);
+  padding-top:70px;
 }
 .video-bg video {
-  height:100vh;
+  height:calc(100vh - 70px);
   width:100vw;
   object-fit: cover;
   object-position: 40%;
@@ -222,66 +221,39 @@ nav, #menu {
 
 .date {
   color : #FFCC00;
-  font-size:24px;
+  font-size:30px;
   font-weight: bold;
+  margin: 24px 0 5px 0;
 }
 
 .artist {
   font-weight: 900;
-  line-height:20px;
-  font-size: 45px;
-}
-/*
-
-.mobile-nav {
-  display:flex;
-}
-.icon-menu {
+  line-height:34px;
+  font-size: 56px;
 }
 
-#logo-min {
+#day2 .date {
+  font-size:26px;
+  margin-bottom:0;
+}
+
+#day2 .artist {
+  font-size:28px;
+}
+
+.festinfo {
   text-align: left;
-}
-.burger {
-  -webkit-appearance:none;
-}
-.burger:before
-{
-  content:'menu';
+  margin-top: 30px;
+  text-transform: none;
+  font-weight: 900;
 }
 
-.burger:checked:before
-{
-  content:'fermer';
+.festinfo .date {
+  font-weight: 900;
+  font-size:24px;
+  color : #FFF;
 }
-
-.mobile-nav {
-  font-size: 16px;
-  min-height:70px;
-  background-color: #FFCC00;
-  background-image: url(assets/img/bg.jpg);
-  background-size: cover;
-  border-bottom: solid 5px #B31B2A;
-}
-
-.icon-menu {
-  font-family: fontawesome;
-  font-size: 34px;
-  margin:0;
-  margin-bottom: -10px;
-  max-height: 35px;
-}
-
-.container-nav nav ul {
-  list-style: none;
-}
-.container-nav {
-  text-align:left;
-  list-style: none;
-  height: 0;
-  overflow:hidden;
-  transition: height 0.4s ease-in;
-}
-.burger:checked ~ .container-nav {
-  height:auto;
+.festinfo .city {
+  font-size:14px;
+  color : #FFCC00;
 }

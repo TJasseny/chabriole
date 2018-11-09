@@ -14,10 +14,9 @@
     </head>
 
     <body <?php body_class(); ?>>
-
 <header>
-<nav id="nav-mobile" role="navigation">
-  <img src="http://localhost/chabriole/wp-content/themes/chabriole/assets/img/logo.png" alt="" id="logo-mobile" height="65px"/>
+<nav id="nav-mobile" class="main">
+  <img src="http://localhost/chabriole/wp-content/themes/chabriole/assets/img/logo.png" alt="" id="logo-mobile" height="65"/>
 
   <div id="menuToggle">
     <!--
@@ -32,9 +31,9 @@
     They are acting like a real hamburger,
     not that McDonalds stuff.
     -->
-    <span></span>
-    <span><p id="label-burger">menu</p></span>
-    <span></span>
+    <span id="bar-up"></span>
+    <span><p>menu</p></span>
+    <span id="bar-down"></span>
 
 
     <!--
