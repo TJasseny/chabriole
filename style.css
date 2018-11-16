@@ -50,7 +50,8 @@ h4 {
  #nav-mobile {
    position:fixed;
    width:100%;
-   z-index: 1;
+   z-index: 9999;
+   top:0px;
  }
 nav, #menu {
    font-size: 16px;
@@ -252,8 +253,8 @@ nav, #menu {
   color : #FFCC00;
 }
 
-/* ----------------------------------------- blog-homepage */
-.blog-homepage article {
+/* ----------------------------------------- Style blog-homepage et actu */
+.blog article {
   width:90%;
   background-color: #F3F3F3;
   margin:0 auto;
@@ -295,10 +296,84 @@ nav, #menu {
   cursor: pointer;
 }
 
-.blog-homepage article:nth-child(2) .vignette- {
+.blog-homepage article:nth-child(2) .vignette-image,
+.blog-homepage article:nth-child(3) .vignette-image,
+.blog-homepage article:nth-child(2) .vignette-noimage,
+.blog-homepage article:nth-child(3) .vignette-noimage {
   display:none;
 }
 
-.blog-homepage article:hover .vignette-image img {
+.blog article:hover .vignette-image img {
   width:120%;
+}
+/* Style Bouton pagination */
+.chab-pagination {
+  text-align: center;
+}
+
+.chab-pagination div a {
+  display: inline-block;
+}
+
+.chab-pagination div a div {
+  margin:20px 60px 5px;
+}
+
+.label-chag-pagination {
+  line-height: 20px;
+}
+.chab-pagination .previous, .chab-pagination .next {
+
+}
+
+/* Style bouton archive */
+.button-archive {
+  background-color: #FF9100;
+  color : #fff;
+  display:flex;
+  margin: 0 auto;
+  margin-bottom:10px;
+  width:90%;
+}
+
+.button-archive p {
+  font-size:24px;
+  padding: 10px;
+  margin: 0;
+}
+
+.button-archive .next-button {
+  margin-top:12px;
+}
+/* ---------------------------------------------------STYLE HEADER PAGES */
+.page-header {
+  height: 180px;
+  overflow: hidden;
+  margin-top:70px;
+  margin-bottom:20px;
+}
+.header-image {
+  width:100%;
+}
+
+.page-header h1{
+  position: absolute;
+  top: 222px;
+  right: 20px;
+  color: #fff;
+  font-weight: 900;
+  z-index: 2;
+  text-transform: uppercase;
+  font-size:30px;
+}
+
+.page-header h1:before {
+  content:"#";
+}
+
+#container-image-header {
+  margin-top:0;
+  filter: brightness(60%);
+  z-index: 1;
+  margin-bottom: 0;
 }

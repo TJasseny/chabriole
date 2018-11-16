@@ -4,7 +4,7 @@
   <div class="container">
     <h2 id="section-actu" class="jaune">#Actualités</h2>
   </div>
-  <div class=" blog-homepage">
+  <div class="blog blog-homepage">
     <?php
     $latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3 ) );
     if ( $latest_blog_posts->have_posts() ) :
@@ -36,4 +36,5 @@
 <p>Voir toutes les actualités</p>
 <div class="next-button">
   <i class="fa fa-chevron-right"></i>
-</div></div>
+</div>
+</div>
