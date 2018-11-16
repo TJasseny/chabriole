@@ -1,4 +1,4 @@
-#chabriole
+# Theme wordpress for chabriole's festival
 Theme Name: Chabriole
 Author: VDEdesign
 Description: Thème développé pour le festival de la Chabriole.
