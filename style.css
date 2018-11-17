@@ -354,6 +354,8 @@ nav, #menu {
 }
 .header-image {
   width:100%;
+  position: relative;
+  bottom: 65px;
 }
 
 .page-header h1{

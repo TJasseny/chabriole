@@ -18,7 +18,7 @@ get_header();
     <h1><?php single_post_title();?></h1>
 <?php if ( get_header_image() ) : ?>
 <div class="page-header" id="container-image-header" >
-  <img  class="header-image" src="<?php header_image(); ?>" alt="">
+  <img  class="header-image" src="<?php echo chabriole_get_featured_image();?>" alt="">
 <div class="page-header-overlay"></div>
 </div>
 <?php endif;
@@ -34,7 +34,7 @@ endif; ?>
   if (have_posts()) :
    while (have_posts()) : the_post();
     ?>
-    <?php if (!(in_category('artist'))): ?>
+    <?php if (!(in_category('artist'))): // Categorie à exclure ?>
     <article class="post-<?php the_ID(); ?>">
       <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
         <div class="vignette-image">
@@ -58,7 +58,5 @@ endif; ?>
   <div class="chab-pagination">
 <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
 </div>
-  <?php //previous_posts_link();
-  //next_posts_link();
-endif; ?>
+  <?php endif; ?>
 </div>

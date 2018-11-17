@@ -1,13 +1,12 @@
 <?php
-// Menus
-add_theme_support( 'menus' );
-    register_nav_menus(array(
-   'primary' => __('Primary Menu', 'top')
-   ));
-
 // Support de la personalisation du theme
 if (!function_exists('chabriole_setup')):
   function chabriole_setup() {
+    // Menus
+    add_theme_support( 'menus' );
+        register_nav_menus(array(
+       'primary' => __('Primary Menu', 'top')
+       ));
   // Intégration de l'arriere plan personalisable de la NAVIGATION
   $backgroundArgs = array(
   'default-color' => '#FFCC00',
@@ -19,15 +18,17 @@ if (!function_exists('chabriole_setup')):
   add_theme_support ('custom-logo');
   // Activation des images mise en avant pour les post type article et page
   add_theme_support('post-thumbnails');
+    add_image_size('chabriole-header', '1920', '400');
   }
 endif;
 add_action( 'after_setup_theme', 'chabriole_setup' );
 
+// Image header personnalisé
 function chabriole_get_featured_image() {
     //Execute if singular
-    if ( is_single() ) {
+    if ( is_single() || is_home() ) {
 
-        $id = get_queried_object_id ();
+        $id = get_queried_object_id();
 
         // Check if the post/page has featured image
         if ( has_post_thumbnail( $id ) ) {
@@ -47,6 +48,7 @@ function chabriole_get_featured_image() {
 
     return $url;
 }
+
 // Intégration du logo personalisé à la page de login
 function wpdev_filter_login_head() {
 
@@ -72,36 +74,4 @@ function wpdev_filter_login_head() {
         <?php
     endif;
 }
-
 add_action( 'login_head', 'wpdev_filter_login_head', 100 );
-
-// Systeme de pagination
-if( !function_exists( 'theme_pagination' ) ) {
-
-    function theme_pagination() {
-
-	global $wp_query, $wp_rewrite;
-	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
-
-	$pagination = array(
-		'base' => @add_query_arg('page','%#%'),
-		'format' => '',
-		'total' => $wp_query->max_num_pages,
-		'current' => $current,
-	        'show_all' => false,
-	        'end_size'     => 1,
-	        'mid_size'     => 2,
-		'type' => 'list',
-		'next_text' => '»',
-		'prev_text' => '«'
-	);
-
-	if( $wp_rewrite->using_permalinks() )
-		$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
-	
-	if( !empty($wp_query->query_vars['s']) )
-		$pagination['add_args'] = array( 's' => str_replace( ' ' , '+', get_query_var( 's' ) ) );
-
-	echo str_replace('page/1/','', paginate_links( $pagination ) );
-    }
-}

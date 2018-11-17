@@ -6,9 +6,8 @@
   </div>
   <div class="blog blog-homepage">
     <?php
-    $latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3 ) );
-    if ( $latest_blog_posts->have_posts() ) :
-      while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
+ if (query_posts(array('posts_per_page' => 3 ))) :;
+      while ( have_posts() ) : the_post();
       ?>
       <article class="post-<?php the_ID(); ?>" id="vignette">
         <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
@@ -31,10 +30,13 @@
       <?php
     endwhile;
   endif; ?>
+  <?php wp_reset_query(); ?>
 </div>
+<a href="<?php echo bloginfo('url'); ?>">
 <div class="button-archive">
 <p>Voir toutes les actualités</p>
 <div class="next-button">
   <i class="fa fa-chevron-right"></i>
 </div>
 </div>
+</a>
