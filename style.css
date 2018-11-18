@@ -306,6 +306,10 @@ nav, #menu {
 .blog article:hover .vignette-image img {
   width:120%;
 }
+
+.blog-end {
+  padding : 20px;
+}
 /* Style Bouton pagination */
 .chab-pagination {
   text-align: center;

@@ -31,10 +31,19 @@ endif; ?>
   //$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 6 ) );
   //if ( $latest_blog_posts->have_posts() ) :
   //  while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
-  if (have_posts()) :
-   while (have_posts()) : the_post();
+//
+  //if (have_posts()) :
+  //while (have_posts()) : the_post();
+  //
+  $paged = ( get_query_var('paged')) ? get_query_var('paged') : 1;
+  $blog_args = array(
+    'paged' => $paged,
+    'cat' => -3 && -4,);
+ $blog_filtered = new WP_Query($blog_args);
+ if ( $blog_filtered->have_posts() ) :
+   while ( $blog_filtered->have_posts() ) : $blog_filtered->the_post();
     ?>
-    <?php if (!(in_category('artist'))): // Categorie à exclure ?>
+    <?php //if (!(in_category('artist'))): // Categorie à exclure ?>
     <article class="post-<?php the_ID(); ?>">
       <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
         <div class="vignette-image">
@@ -53,10 +62,18 @@ endif; ?>
         </div>
       </a>
     </article>
-  <?php endif;
+  <?php //endif;
   endwhile; ?>
   <div class="chab-pagination">
 <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
+</div>
+<?php else : ?>
+  <div class="blog-end">
+    <h2>Au bout du fil !</h2>
+    <p>Vous avez parcourus la totalité du fil d'actualités, vous devez être incollable sur le festival !</p>
+    <div class="chab-pagination">
+  <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
+</div>
 </div>
   <?php endif; ?>
 </div>

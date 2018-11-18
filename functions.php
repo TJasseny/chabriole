@@ -26,7 +26,7 @@ add_action( 'after_setup_theme', 'chabriole_setup' );
 // Image header personnalisé
 function chabriole_get_featured_image() {
     //Execute if singular
-    if ( is_single() || is_home() ) {
+    // if ( is_single() || is_home() ) {
 
         $id = get_queried_object_id();
 
@@ -41,10 +41,10 @@ function chabriole_get_featured_image() {
         } else {
 
             //Set a default image if Featured Image isn't set
-            $url = '';
+            $url = bloginfo('url').'/assets/img/bg.jpg';
 
         }
-    }
+    // }
 
     return $url;
 }
