@@ -43,7 +43,6 @@ endif; ?>
  if ( $blog_filtered->have_posts() ) :
    while ( $blog_filtered->have_posts() ) : $blog_filtered->the_post();
     ?>
-    <?php //if (!(in_category('artist'))): // Categorie à exclure ?>
     <article class="post-<?php the_ID(); ?>">
       <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
         <div class="vignette-image">
@@ -62,8 +61,7 @@ endif; ?>
         </div>
       </a>
     </article>
-  <?php //endif;
-  endwhile; ?>
+  <?php endwhile; ?>
   <div class="chab-pagination">
 <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
 </div>
@@ -75,5 +73,6 @@ endif; ?>
   <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
 </div>
 </div>
-  <?php endif; ?>
+  <?php endif;
+  wp_reset_query();?>
 </div>

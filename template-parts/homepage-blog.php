@@ -6,8 +6,18 @@
   </div>
   <div class="blog blog-homepage">
     <?php
- if (query_posts(array('posts_per_page' => 3 ))) :;
-      while ( have_posts() ) : the_post();
+    //$paged = ( get_query_var('paged')) ? get_query_var('paged') : 1;
+    $homepage_blog_args = array(
+      'paged' => $paged,
+      'cat' => -3 && -4,
+      'posts_per_page' => 3,);
+   $blog_filtered = new WP_Query($homepage_blog_args);
+   if ( $blog_filtered->have_posts() ) :
+     while ( $blog_filtered->have_posts() ) : $blog_filtered->the_post();
+      ?>
+ <?php
+  //if (query_posts(array('posts_per_page' => 3 ))) :;
+    //  while ( have_posts() ) : the_post();
       ?>
       <article class="post-<?php the_ID(); ?>" id="vignette">
         <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
