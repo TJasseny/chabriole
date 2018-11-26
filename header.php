@@ -40,7 +40,7 @@
     Too bad the menu has to be inside of the button
     but hey, it's pure CSS magic.
     -->
-    <?php wp_nav_menu(array('theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string')); ?>
+    <?php wp_nav_menu(array('menu' => 'primary', 'theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string', 'depth' => '1',)); ?>
 
 </div>
 </nav>

@@ -1,12 +1,10 @@
-<!-- Début de la section blog -->
-
-<section class="" id="">
+  <!-- Début de la section blog -->
+<section>
   <div class="container">
     <h2 id="section-actu" class="jaune">#Actualités</h2>
   </div>
   <div class="blog blog-homepage">
     <?php
-    //$paged = ( get_query_var('paged')) ? get_query_var('paged') : 1;
     $homepage_blog_args = array(
       'paged' => $paged,
       'cat' => -3 && -4,
@@ -15,11 +13,7 @@
    if ( $blog_filtered->have_posts() ) :
      while ( $blog_filtered->have_posts() ) : $blog_filtered->the_post();
       ?>
- <?php
-  //if (query_posts(array('posts_per_page' => 3 ))) :;
-    //  while ( have_posts() ) : the_post();
-      ?>
-      <article class="post-<?php the_ID(); ?>" id="vignette">
+      <article id="post-<?php the_ID(); ?>">
         <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
           <div class="vignette-image">
             <?php the_post_thumbnail('medium_large'); ?>
@@ -50,3 +44,4 @@
 </div>
 </div>
 </a>
+</section>

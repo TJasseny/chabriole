@@ -43,6 +43,68 @@ h4 {
 .jaune {
     color : #FFCC00;
 }
+.white {
+  color: #fff;
+}
+.bg-jaune {
+  background-color: #FFCC00;
+}
+.rouge {
+  color: #B31B2A!important;
+}
+
+.bg-rouge {
+  background-color: #B31B2A;
+}
+/* ------------------------------------------------------------STYLE BOUTONS */
+/* Style Bouton pagination */
+.chab-pagination {
+  text-align: center;
+}
+.chab-pagination div a {
+  display: inline-block;
+}
+.chab-pagination div a div {
+  margin:20px 60px 5px;
+}
+.label-chag-pagination {
+  line-height: 20px;
+}
+
+/* Style bouton archive */
+.button-archive {
+  background-color: #FF9100;
+  color : #fff;
+  display:flex;
+  margin: 0 auto;
+  margin-bottom:10px;
+  width:90%;
+}
+
+.button-archive p {
+  font-size:24px;
+  padding: 10px;
+  margin: 0;
+}
+
+.button-archive .next-button {
+  margin-top:12px;
+}
+
+/* Style Bouton retour haut de page */
+.up-button {
+  font-size: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FFCC00;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    text-align: center;
+    box-shadow: 2px 2px 20px -3px;
+    z-index:8888;
+}
 /* -------------------------------------------------- STYLE NAVIGATION MOBILE */
  #logo-mobile {
    position:fixed;
@@ -310,45 +372,86 @@ nav, #menu {
 .blog-end {
   padding : 20px;
 }
-/* Style Bouton pagination */
-.chab-pagination {
-  text-align: center;
+
+/* --------------------------------------------------------------Style section artiste */
+.artists-homepage h2, .list-artists h2 {
+  color: #FFF;
+  padding: 20px 0;
+  margin-left: 15px;
 }
 
-.chab-pagination div a {
-  display: inline-block;
+.artists-homepage article, .list-artists article {
+  height: 12em;
+  overflow: hidden;
+  text-align: right;
 }
 
-.chab-pagination div a div {
-  margin:20px 60px 5px;
+.artists-homepage article:nth-child(3) {
+  margin: 5px 0 5px 0;
+}
+.artists-homepage article img, .list-artists article img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: -40px;
+  z-index: 1;
+  filter: blur(2px) brightness(0.85);
+}
+.artists-homepage article h4, .list-artists article h4 {
+  position: relative;
+  z-index: 9;
+  margin: 0 10px 0 auto;
+  text-transform: uppercase;
+  font-weight: 900;
+  /*font-size:30px;*/
+}
+/*.list-artists article {
+  height: 11em;
+  text-align:center;}
+.list-artists-logo {
+  position:relative;
+  width:80%!important;
+  top: 55px!important;
+  z-index: 3!important;
+}
+.list-artists-logo img {
+  filter: none!important;
+}
+.list-artists article {
+  border-bottom: solid 10px #FFCC00;
+}
+.list-artists article img.wp-post-image {
+  top:-50px!important;
+}*/
+.section-title {
+  padding:15px;
+}
+.item {
+  height: 150px;
+  overflow: hidden;
+  border-bottom: solid 10px #FFCC00;
 }
 
-.label-chag-pagination {
-  line-height: 20px;
+.item .wp-post-image {
+  width:100%;
+  height:auto;
 }
-.chab-pagination .previous, .chab-pagination .next {
-
-}
-
-/* Style bouton archive */
-.button-archive {
-  background-color: #FF9100;
-  color : #fff;
-  display:flex;
+ .item-logo {
+  height:150px;
+  position: relative;
+  top: -250px;
+  z-index: 4;
+  width: 80%;
   margin: 0 auto;
-  margin-bottom:10px;
-  width:90%;
+  display: flex;
+  align-items: center;
+}
+.item-logo img {
+  width:100%;
+  opacity: 0.8;
+  vertical-align: middle;
 }
 
-.button-archive p {
-  font-size:24px;
-  padding: 10px;
-  margin: 0;
-}
-
-.button-archive .next-button {
-  margin-top:12px;
-}
 /* ---------------------------------------------------STYLE HEADER PAGES */
 .page-header {
   height: 180px;
@@ -359,9 +462,8 @@ nav, #menu {
 .header-image {
   width:100%;
   position: relative;
-  bottom: 65px;
+  /*bottom: 65px;*/
 }
-
 .page-header h1{
   position: absolute;
   top: 222px;
@@ -372,14 +474,71 @@ nav, #menu {
   text-transform: uppercase;
   font-size:30px;
 }
-
 .page-header h1:before {
   content:"#";
 }
-
 #container-image-header {
   margin-top:0;
   filter: brightness(60%);
   z-index: 1;
   margin-bottom: 0;
+}
+/* ---------------------------------------------------STYLE PAGES PROGRAMMATION */
+/* ---------------------------------------------------bandeau navigation jours */
+.program-header {
+  margin-bottom:0;
+}
+.nav-program {
+  font-size : 18px;
+  font-weight: 900;
+  display: flex;
+  justify-content: space-between;
+  padding:5px 10px;
+}
+.nav-program p {
+  margin:0;
+}
+/* -------------------------------------------------------- Fiche artiste */
+.fiche-artist p {
+  padding: 10px;
+  margin-bottom:0;
+}
+.fiche-artist:target {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+.fiche-artist .item {
+  height:200px;
+  margin-top:-10px;
+  border: none;
+  border-top: solid 10px #FFCC00;
+}
+.nav-artist a .item div img {
+  filter: blur(2px);
+}
+.fiche-artist .item div img {
+  filter: brightness(50%);
+}
+.video, .img-illu {
+  width:100%;
+}
+
+.video {
+  height:220px;
+}
+.img-illu img {
+  width:100%;
+  height:auto;
+}
+
+.dday {
+  text-align: right;
+  color : #FFCC00;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.dday span {
+  font-size : 30px;
 }
