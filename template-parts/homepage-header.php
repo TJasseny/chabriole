@@ -17,17 +17,15 @@
     </h1><?php } ?>
   </div>
   <div class="festdate" id="day1">
-      <P class="date">samedi 20 juillet</p>
-      <P class="artist">groupe 1</p>
-      <P class="artist">groupe 2</p>
-      <P class="artist">groupe 3</p>
+      <P class="date"><?php echo get_field('titre_accueil_1', 172); ?></p>
+      <?php chab_get_lineup(); ?>
   </div>
   <div class="festdate" id="day2">
-      <P class="date">dimanche 21 juillet</p>
+      <P class="date"><?php echo get_field('titre_accueil_2', 172); ?></p>
       <P class="artist">la fête au village</p>
   </div>
   <div class="festinfo">
-    <p class="date">#20/21 Juillet 2018</p>
+    <p class="date">#<?php echo get_field('date_fest', 172); ?></p>
     <p class="city">St Michel de Chabrillanoux</p>
   </div>
   <div class="button-down">

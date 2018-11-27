@@ -34,3 +34,5 @@
     <a href="<?php bloginfo('url'); ?>/la-fete-au-village"><p class="label-jour jaune"><?php echo $date_jour_2; ?></p></a>
 <?php }?>
 </div>
+
+<?php get_footer(); ?>

@@ -23,3 +23,6 @@ get_header();
 <?php endif; ?>
 </div>
 </header>
+
+
+<?php get_footer(); ?>

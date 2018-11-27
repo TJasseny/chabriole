@@ -290,7 +290,9 @@ nav, #menu {
 .artist {
   font-weight: 900;
   line-height:34px;
-  font-size: 56px;
+  font-size: 38px;
+  max-width:90%;
+  margin: 0 auto;
 }
 #day2 .date {
   font-size:26px;
@@ -541,4 +543,68 @@ nav, #menu {
 
 .dday span {
   font-size : 30px;
+}
+
+/* ---------------------------------------------------- Style FOOTER */
+footer {
+   background-color: #FFCC00;
+}
+.social-bar {
+  padding-top: 30px;
+}
+.social-bar ul {
+  display: flex;
+  justify-content: space-around;
+  padding:0;
+  font-size: 30px;
+  text-align: center;
+}
+.social-bar ul li {
+  list-style: none;
+  width:48px;
+  height:48px;
+  color: #FFF;
+  border-radius: 50%;
+}
+
+.facebook {
+  background-color: #4267B2;
+}
+.twitter {
+  background-color: #1DA1F2;
+}
+.instagram {
+  background-image: radial-gradient(farthest-corner at -38% 11%,#1400c8,#b900b4,#f50000,#ffd400);
+}
+.linkedin {
+  background-color: #0077B5;
+}
+
+.mail {
+  background-color: #FFF;
+  color: #FFCC00!important;
+}
+
+.organisateur {
+  font-size: 18px;
+  padding:0 20px;
+}
+
+.organisateur h5 {
+  font-weight : 900;
+}
+.organisateur p {
+  margin:0;
+}
+.logo-org {
+  width: 140px;
+  margin: 0 auto
+}
+
+.logo-org img {
+  width:100%;
+}
+.legal {
+  padding:30px 20px 10px;
+  text-align: right;
 }

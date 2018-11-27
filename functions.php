@@ -62,7 +62,7 @@ function wpdev_filter_login_head() {
             }
 
             body {
-              background-image: url(http://localhost/chabriole/wp-content/themes/chabriole/assets/img/bg.jpg);
+              background-image: url(<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/bg.jpg);
               background-size: cover;
             }
 
@@ -72,6 +72,40 @@ function wpdev_filter_login_head() {
     endif;
 }
 add_action( 'login_head', 'wpdev_filter_login_head', 100 );
+
+// Affichage des artiste en page d'accueil
+function chab_get_lineup() {
+
+  $nombre_artist_2 = get_field('nombre_artiste_jour_2', 172);
+  $nombre_artist_1 = get_field('nombre_artiste_jour_1', 172);
+  $nbre_posts = ($nombre_artist_1 + $nombre_artist_2);
+
+  if ($nombre_artist_2 > 0) {
+    $args = array(
+      'cat' => '6,7',
+      'posts_per_page' => $nbre_posts,
+    );
+    $blog_filtered = new WP_Query($args);
+    if ( $blog_filtered->have_posts() ) {
+      while ( $blog_filtered->have_posts() ) {
+        $blog_filtered->the_post(); ?>
+      <P class="artist"><?php the_title(); ?></p>
+      <?php }
+  }
+} else {
+  $args = array(
+    'cat' => '6',
+    'posts_per_page' => $nombre_artist_1,
+  );
+  $blog_filtered = new WP_Query($args);
+  if ( $blog_filtered->have_posts() ) {
+    while ( $blog_filtered->have_posts() ) {
+      $blog_filtered->the_post(); ?>
+    <P class="artist"><?php the_title(); echo $nbre_posts; ?></p>
+    <?php }
+}
+}
+ wp_reset_query();}
 
 // Conversion de date - innutilisé---------------------------------------
 function chab_the_date() {
@@ -242,3 +276,13 @@ function chab_get_artist_details($args) {
      <?php }}
    wp_reset_query();
  }
+
+// Gestion des chammps personnalisé réseaux sociaux /////////////////////
+ function chab_get_social_link($name) {
+   $sociallink = '';
+   if (!empty(get_field($name, 172))) {
+   $sociallink = get_field($name, 172);
+ }
+
+return $sociallink;
+}

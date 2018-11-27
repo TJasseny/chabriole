@@ -9,3 +9,5 @@
 <?php get_template_part( 'template-parts/homepage', 'header' ); ?>
 <?php get_template_part( 'template-parts/homepage', 'blog' ); ?>
 <?php get_template_part( 'template-parts/homepage', 'artist' ); ?>
+
+<?php get_footer(); ?>
