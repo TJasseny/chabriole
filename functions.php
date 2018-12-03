@@ -286,3 +286,13 @@ function chab_get_artist_details($args) {
 
 return $sociallink;
 }
+
+// Affichage personnalisé des post artists
+function get_artist_history_post($postid) {
+  if (!empty(get_field($postid))) {
+  $post_artist_id = get_field($postid);
+  $post_args = array(
+    'p' => $post_artist_id,);
+  chab_get_artist_details($post_args);
+  }
+}

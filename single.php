@@ -11,7 +11,22 @@
  */
 
 get_header(); ?>
-
+<div class="page-header">
+    <h1><?php the_title();?></h1>
+<div class="page-header" id="container-image-header" >
+  <img  class="header-image" src="<?php echo chabriole_get_featured_image();?>" alt="">
+<div class="page-header-overlay"></div>
+</div>
+</div>
+</header>
+<?php
+global $post;
+        foreach((get_the_category($post->ID)) as $category) {
+            $cat = $category->term_id;
+        }
+	if ($cat === 4) {
+		include 'template-parts/history-single.php';
+	} else {?>
 <div class="wrap">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -36,6 +51,6 @@ get_header(); ?>
 	</div><!-- #primary -->
 	<?php get_sidebar(); ?>
 </div><!-- .wrap -->
-
+<?php }  ?>
 <?php get_footer();
 ?>

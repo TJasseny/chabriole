@@ -56,6 +56,21 @@ h4 {
 .bg-rouge {
   background-color: #B31B2A;
 }
+
+.right {
+  text-align:right;
+}
+
+.left {
+  text-align: left;
+}
+.bold {
+  font-weight: 600;
+}
+
+.center {
+  text-align: center;
+}
 /* ------------------------------------------------------------STYLE BOUTONS */
 /* Style Bouton pagination */
 .chab-pagination {
@@ -544,7 +559,109 @@ nav, #menu {
 .dday span {
   font-size : 30px;
 }
+/* ---------------------------------------------------- STYLE PAGE BILLETERIE ET TARIFS */
+.page-template-tarif h1 {
+  /*top : 185px;*/
+  text-align: right;
+}
 
+.page-template-tarif h3 {
+  font-size: 58px;
+  font-weight: 900;
+}
+.page-template-tarif section {
+  padding: 20px;
+}
+
+.page-template-tarif section.first {
+  padding-top: 0;
+}
+.section-tarif {
+  background-color : #FFCC00;
+}
+
+.colonne {
+  margin-top: 40px;
+}
+.colonne p {
+  color: #FFF;
+  font-weight: 600;
+  margin:0;
+  font-size: 18px;
+}
+
+.texte-info-min {
+  font-size:16px!important;
+}
+
+.logos-billeteries {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  vertical-align: middle;
+  margin-bottom:20px;
+}
+
+.billeterie-logo {
+  max-width:30%;
+  align-self: center;
+}
+
+.billeterie-logo img {
+  width:100%;
+}
+.office-tourisme {
+  padding:0!important;
+}
+
+.office-logo {
+  width:70%;
+  margin:0 auto;
+}
+.groupe-office {
+  padding: 20px;
+}
+.privas {
+  background-color : #528258;
+}
+.office-logo img {
+  width:100%;
+  margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------- Style page Historique Festivals */
+.history-blog .container-article {
+  width: calc(100vw - 20px);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  margin-left:20px;
+}
+
+.history-blog article {
+  min-width:200px;
+  height:300px;
+  margin-right:20px;
+  overflow: hidden;
+}
+.history-blog article h4{
+  position: relative;
+  top: 260px;
+  z-index:2;
+}
+.history-blog article img {
+  width:auto;
+  height: 100%;
+}
+
+.darkmask {
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  top:-300px;
+  z-index:1;
+}
 /* ---------------------------------------------------- Style FOOTER */
 footer {
    background-color: #FFCC00;
@@ -607,4 +724,20 @@ footer {
 .legal {
   padding:30px 20px 10px;
   text-align: right;
+}
+
+/* ----------------------------------------------------------- Style page 404 */
+.fullframe {
+  width: 100vw;
+  height: 80vh;
+}
+
+.container-custom-logo img {
+  margin-top: 100px;
+}
+.text-404 h2 {
+  font-size : 50px;
+}
+.text-404 p {
+  font-size : 24px;
 }
