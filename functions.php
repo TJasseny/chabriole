@@ -101,7 +101,7 @@ function chab_get_lineup() {
   if ( $blog_filtered->have_posts() ) {
     while ( $blog_filtered->have_posts() ) {
       $blog_filtered->the_post(); ?>
-    <P class="artist"><?php the_title(); echo $nbre_posts; ?></p>
+    <P class="artist"><?php the_title(); ?></p>
     <?php }
 }
 }
@@ -182,82 +182,108 @@ function chab_the_time() {
 
 // Affichage du détail artiste///////////////////////////////////////////
 function chab_get_artist_details($args) {
-    $blog_filtered = new WP_Query($args);
-    if ( $blog_filtered->have_posts() ) {
-      while ( $blog_filtered->have_posts() ) {
-        $blog_filtered->the_post();
-      ?>
-
-      <article class="fiche-artist"  id="post-<?php the_ID(); ?>">
-        <div class="item">
-          <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
-            <div><?php the_post_thumbnail('medium_large'); ?></div>
-            <p class="item-logo"><img src="<?php the_field('logo_group'); ?>" alt="logo <?php the_title(); ?>"></p>
-          <?php endif; ?>
-        </div>
-        <?php
-        // Test de l'existence de contenu dans le champ 'texte', si null, on n'affaiche rien.
-        if (get_field('texte_1') && !empty(get_field('texte_1'))) { ?>
-
-        <!-- Premier paragraphe et illustration -->
-        <p><?php the_field('texte_1'); ?></p>
-        <?php if (!(get_field('video') === '')) {?>
-          <iframe class="video v1" src="https://www.youtube.com/embed/<?php the_field('video');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <?php } elseif (get_field('image') && !empty(get_field('image'))) { ?>
-          <div class="img-illu">
-            <img src="<?php the_field('image'); ?>" alt="">
+  $blog_filtered = new WP_Query($args);
+  if ( $blog_filtered->have_posts() ) {
+    while ( $blog_filtered->have_posts() ) {
+      $blog_filtered->the_post();
+      if (has_post_thumbnail() && ! post_password_required() ) {
+        $image_url = wp_get_attachment_image_src(get_post_thumbnail_id(),'large');}
+        ?>
+        <article class="fiche-artist"  id="post-<?php the_ID(); ?>" style="background-image: url('<?php echo $image_url[0]; ?>');">
+          <div class="item bg-article">
+            <?php if (has_post_thumbnail() && ! post_password_required() ) : ?>
+              <div class="brightness">
+                <img class="wp-post-image" src="<?php echo $image_url[0]; ?>">
+              </div>
+            <?php endif; ?>
+            <div class="item-logo logo-detail"><img src="<?php the_field('logo_group'); ?>" alt="logo <?php the_title(); ?>"></div>
           </div>
-        <?php } ?>
 
-            <!-- Deuxieme paragraphe et illustration -->
-            <?php
-            // Test de l'existence de contenu dans le champ 'texte_2', si null, on n'affiche pas la suite.
+
+          <?php
+          // Test de l'existence de contenu dans le champ 'texte', si null, on n'affaiche rien.
+          if (get_field('texte_1') && !empty(get_field('texte_1'))) { ?>
+            <div class="content-article">
+              <div class="logo-group center"><img src="<?php the_field('logo_group'); ?>" alt="logo <?php the_title(); ?>"></div>
+
+              <!-- Premier paragraphe et illustration -->
+              <div class="article-duo">
+                <?php the_field('texte_1'); ?>
+                <?php if (!(get_field('video') === '')) {?>
+                  <div class="img-illu">
+                    <iframe width="100%" height="100%" class="video v1" src="https://www.youtube.com/embed/<?php the_field('video');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                <?php } elseif (get_field('image') && !empty(get_field('image'))) { ?>
+                  <div class="img-illu">
+                    <img src="<?php the_field('image'); ?>" alt="">
+                  </div>
+                <?php } ?>
+              </div>
+
+              <!-- Deuxieme paragraphe et illustration -->
+              <?php
+              // Test de l'existence de contenu dans le champ 'texte_2', si null, on n'affiche pas la suite.
               if (get_field('texte_2') && !empty(get_field('texte_2'))) { ?>
-              <p><?php the_field('texte_2'); ?></p>
-              <?php if (!(get_field('video_2') === '')){ ?>
-                <iframe class="video v1" src="https://www.youtube.com/embed/<?php the_field('video_2');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              <?php } elseif (get_field('image_2') && !empty(get_field('image_2'))) { ?>
-                <div class="img-illu">
-                  <img src="<?php the_field('image_2'); ?>" alt="">
+                <div class="article-duo reverse">
+                  <?php the_field('texte_2'); ?>
+                  <?php if (!(get_field('video_2') === '')){ ?>
+                    <div class="img-illu">
+                      <iframe width="100%" height="100%" class="video v1" src="https://www.youtube.com/embed/<?php the_field('video_2');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  <?php } elseif (get_field('image_2') && !empty(get_field('image_2'))) { ?>
+                    <div class="img-illu">
+                      <img src="<?php the_field('image_2'); ?>" alt="">
+                    </div>
+                  <?php } ?>
                 </div>
-              <?php } ?>
 
                 <!-- Troisieme paragraphe et illustration -->
                 <?php
                 // Test de l'existence de contenu dans le champ 'texte_3', si null, on n'affiche pas la suite.
                 if (get_field('texte_3') && !empty(get_field('texte_3'))) { ?>
-                  <p><?php the_field('texte_3'); ?></p>
-                  <?php if (!(get_field('video_3') === '')) {?>
-                    <iframe class="video v1" src="https://www.youtube.com/embed/<?php the_field('video_3');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  <?php } elseif (get_field('image_3') && !empty(get_field('image_3'))) { ?>
-                    <div class="img-illu">
-                      <img src="<?php the_field('image_3'); ?>" alt="">
-                    </div>
-                  <?php } ?>
+                  <div class="article-duo">
+                    <?php the_field('texte_3'); ?>
+                    <?php if (!(get_field('video_3') === '')) {?>
+                      <div class="img-illu">
+                        <iframe width="100%" height="100%" class="video v1" src="https://www.youtube.com/embed/<?php the_field('video_3');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    <?php } elseif (get_field('image_3') && !empty(get_field('image_3'))) { ?>
+                      <div class="img-illu">
+                        <img src="<?php the_field('image_3'); ?>" alt="">
+                      </div>
+                    <?php } ?>
+                  </div>
 
-                    <!-- Quatrieme paragraphe et illustration -->
-                    <?php
-                    // Test de l'existence de contenu dans le champ 'texte_4', si null, on n'affiche pas la suite.
-                    if (get_field('texte_4') && !empty(get_field('texte_4'))) { ?>
-                      <p><?php the_field('texte_4'); ?></p>
+                  <!-- Quatrieme paragraphe et illustration -->
+                  <?php
+                  // Test de l'existence de contenu dans le champ 'texte_4', si null, on n'affiche pas la suite.
+                  if (get_field('texte_4') && !empty(get_field('texte_4'))) { ?>
+                    <div class="article-duo reverse">
+                      <?php the_field('texte_4'); ?>
                       <?php if (!(get_field('video_4') === '')) {?>
-                        <iframe class="video v1" src="https://www.youtube.com/embed/<?php the_field('video_4');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="img-illu">
+                          <iframe width="100%" height="100%" class="video v1" src="https://www.youtube.com/embed/<?php the_field('video_4');?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                       <?php } elseif (get_field('image_4') && !empty(get_field('image_4'))) { ?>
                         <div class="img-illu">
                           <img src="<?php the_field('image_4'); ?>" alt="">
                         </div>
-                      <?php }
+                      <?php } ?>
+                    </div>
 
-                     } // Fin de la condition paragraphe 4
-                   } // Fin de la condition paragraphe 3
-                   } // Fin de la condition paragraphe 2?>
-                <?php if (!(get_field('horaire') === '')) { ?>
-                <p class="dday">Début du concert à <span><?php echo chab_the_time()['hmin']; ?></span></p>
-                <?php } ?>
-    </article>
 
-  <?php }}}
- wp_reset_query(); }
+                  <?php } // Fin de la condition paragraphe 4
+                } // Fin de la condition paragraphe 3
+              } // Fin de la condition paragraphe 2?>
+            </div>
+          <?php } ?>
+          <?php if (!(get_field('horaire') === '')) { ?>
+            <p class="dday">Début du concert à <span><?php echo chab_the_time()['hmin']; ?></span></p>
+          <?php } ?>
+        </article>
+
+      <?php }}
+      wp_reset_query(); }
 
 
  function chab_get_artist_nav($args) {
@@ -265,14 +291,16 @@ function chab_get_artist_details($args) {
      if ( $blog_filtered->have_posts() ) {
        while ( $blog_filtered->have_posts() ) { $blog_filtered->the_post();
        ?>
-
-       <a href="#post-<?php the_ID(); ?>"><article class="item">
+       <div class="container-item">
+       <a href="#post-<?php the_ID(); ?>">
+         <article class="item">
          <?php if (has_post_thumbnail() && ! post_password_required() ) { ?>
-           <div><?php the_post_thumbnail('medium_large'); ?></div>
-           <p class="item-logo"><img src="<?php the_field('logo_group'); ?>" alt="logo <?php the_title(); ?>"></p>
+           <div class="blur"><?php the_post_thumbnail('url'); ?></div>
+           <div class="item-logo"><img src="<?php the_field('logo_group'); ?>" alt="logo <?php the_title(); ?>"></div>
          <?php } ?>
-       </article></a>
-
+       </article>
+     </a>
+   </div>
      <?php }}
    wp_reset_query();
  }

@@ -1,6 +1,6 @@
   <!-- Début de la section blog -->
 <section>
-  <div class="container">
+  <div class="container-fluid">
     <h2 id="section-actu" class="jaune">#Actualités</h2>
   </div>
   <div class="blog blog-homepage">

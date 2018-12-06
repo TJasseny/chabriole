@@ -15,7 +15,16 @@
 <?php endif; ?>
 </div>
 </header>
-
+<section class="button-list">
+  <a href="<?php echo bloginfo('url'); ?>">
+  <div class="button-archive">
+  <p>Voir la liste de tous <br>les artistes depuis 1975</p>
+  <div class="icon-list">
+    <i class="fa fa-list"></i>
+  </div>
+  </div>
+  </a>
+</section>
 <section>
 <div class="history-blog">
   <h4>Tous les festivals depuis 1975</h4>
@@ -47,3 +56,5 @@ endif;
 </div>
     </div>
 </section>
+
+<?php get_footer(); ?>

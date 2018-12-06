@@ -281,46 +281,52 @@ nav, #menu {
 }
 .video-bg video {
   height:calc(100vh - 70px);
-  width:100vw;
+  width:100%;
   object-fit: cover;
   object-position: 40%;
 }
 .affiche {
+  /*width:100%;*/
+  height:calc(100vh - 70px);
   position: absolute;
-  top: 85px;
+  top: 12%;
+  padding-top:4%;
   text-align: center;
-  text-transform: uppercase;
   line-height:20px;
   color: #fff;
 }
 .logo-header h1 img {
-  width:240px;
+  width:70%;
 }
 .date {
   color : #FFCC00;
-  font-size:30px;
+  font-size:26px;
   font-weight: bold;
   margin: 24px 0 5px 0;
 }
 .artist {
   font-weight: 900;
-  line-height:34px;
-  font-size: 38px;
+  line-height:26px;
+  font-size: 26px;
   max-width:90%;
   margin: 0 auto;
+  text-transform: uppercase;
 }
 #day2 .date {
   font-size:26px;
   margin-bottom:0;
 }
 #day2 .artist {
-  font-size:28px;
+  font-size:24px;
 }
 .festinfo {
   text-align: left;
   margin-top: 30px;
+  margin-left: /*20px*/2vw;
   text-transform: none;
   font-weight: 900;
+  position: absolute;
+  bottom: /*20px*/1vh;
 }
 .festinfo .date {
   font-weight: 900;
@@ -443,8 +449,11 @@ nav, #menu {
 .section-title {
   padding:15px;
 }
+.container-item {
+  width:100%;
+}
 .item {
-  height: 150px;
+  height: 55vw;
   overflow: hidden;
   border-bottom: solid 10px #FFCC00;
 }
@@ -456,7 +465,7 @@ nav, #menu {
  .item-logo {
   height:150px;
   position: relative;
-  top: -250px;
+  top: -235px;
   z-index: 4;
   width: 80%;
   margin: 0 auto;
@@ -468,7 +477,12 @@ nav, #menu {
   opacity: 0.8;
   vertical-align: middle;
 }
-
+/*.logo-detail {
+  top:-41em;
+}*/
+.logo-group {
+  display: none;
+}
 /* ---------------------------------------------------STYLE HEADER PAGES */
 .page-header {
   height: 180px;
@@ -524,22 +538,23 @@ nav, #menu {
     padding-top: 60px;
     margin-top: -60px;
 }
+.fiche-artist {
+  background-size: 0 0;
+}
 .fiche-artist .item {
-  height:200px;
   margin-top:-10px;
   border: none;
   border-top: solid 10px #FFCC00;
 }
-.nav-artist a .item div img {
+.blur {
   filter: blur(2px);
 }
-.fiche-artist .item div img {
+.item .brightness img {
   filter: brightness(50%);
 }
 .video, .img-illu {
   width:100%;
 }
-
 .video {
   height:220px;
 }
@@ -630,6 +645,19 @@ nav, #menu {
 }
 
 /* ---------------------------------------------------- Style page Historique Festivals */
+.button-list .button-archive {
+  background-color: #FFCC00;
+}
+.button-list .button-archive p{
+    font-size:16px;
+}
+.icon-list {
+  font-size: 36px;
+}
+.history-blog {
+  margin-top:20px;
+  margin-bottom:40px;
+}
 .history-blog .container-article {
   width: calc(100vw - 20px);
   overflow-x: scroll;
@@ -637,7 +665,11 @@ nav, #menu {
   display: flex;
   margin-left:20px;
 }
-
+.history-blog h4 {
+  font-size:20px;
+  padding-left:20px;
+  margin-bottom:-5px;
+}
 .history-blog article {
   min-width:200px;
   height:300px;
@@ -740,4 +772,241 @@ footer {
 }
 .text-404 p {
   font-size : 24px;
+}
+
+/* -------------------------------------------------------------- AAPTATION RESPONSIVE */
+/*-------------------------------------------------
+---------------------------------------------------*/
+@media screen and (min-width: 321px) {
+  .affiche {
+    padding-top:2%;
+  }
+  .date {
+    font-size:30px;
+  }
+  .artist {
+    font-size:38px;
+    line-height: 32px;
+  }
+  #day2 .date {
+    font-size:26px;
+    margin-bottom:0;
+  }
+  #day2 .artist {
+    font-size:28px;
+  }
+  .festinfo {
+    bottom: /*20px*/2vh;
+  }
+}
+@media screen and (min-width: 560px) {
+  .flex {
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .logo-header h1 img {
+    width:/*320px*/70%;
+  }
+}
+
+/*-------------------------------------------------
+---------------------------------------------------*/
+@media screen and (min-width: 768px) {
+.affiche {
+    padding-top:1%;
+  }
+  .festinfo {
+    bottom: /*20px*/6vh;
+  }
+  .blog article {
+    width:30%;
+  }
+  .blog-homepage {
+    display:flex;
+  }
+  .blog-homepage article:nth-child(2) .vignette-image,
+  .blog-homepage article:nth-child(3) .vignette-image,
+  .blog-homepage article:nth-child(2) .vignette-noimage,
+  .blog-homepage article:nth-child(3) .vignette-noimage {
+    display:inherit;
+  }
+  .nav-artist, .content-article  {
+    display:flex;
+  }
+  .reverse {
+    flex-direction:row-reverse;
+  }
+  .content-article {
+    flex-wrap: wrap;
+    background-color: rgba(0,0,0,0.5);
+    padding:20px;
+    padding-bottom:0;
+  }
+  .content-article .article-duo:last-child {
+    margin-bottom:0;
+  }
+  .logo-group {
+    display:initial;
+    width:70%;
+    margin: 0 auto;
+    margin-bottom:40px;
+  }
+  .logo-group img {
+    width:80%;
+  }
+  .article-duo {
+    display: flex;
+    align-items: center;
+    width:100%;
+    margin-bottom:20px;
+}
+
+.article-duo p {
+    width: 80%;
+    color: #FFF;
+}
+.img-illu, .video {
+    min-height: 265px;
+}
+  .item {
+    height:15vw;
+  }
+  .item-logo {
+    top: -20vw;
+  }
+  .bg-article {
+    display:none;
+  }
+  .logo-detail {
+    position: inherit;
+  }
+
+  .fiche-artist {
+    background-size: cover;
+background-position: center;
+    border-top: solid 15px #FFCC00;
+  }
+  .bg-article {
+    width:100%;
+  }
+  .bg-article .brightness img {
+    width:100%;
+    height:auto;
+  }
+  .dday {
+    background-color: rgba(0,0,0,0.5);
+    color:#FFCC00;
+    padding:0;
+    padding-right:20px!important;
+  }
+}
+/*-------------------------------------------------
+---------------------------------------------------*/
+@media screen and (min-width: 1024px) {
+  .item {
+    height:15vw;
+  }
+  .item-logo {
+    top: -16vw;
+  }
+  .article-duo {
+    font-size: 18px;
+  }
+}
+/*-------------------------------------------------
+---------------------------------------------------*/
+@media screen and (min-width: 1280px) {
+  .affiche {
+      padding-top:10%;
+    }
+  .festinfo {
+    bottom:6vh;
+  }
+  .logo-header h1 img {
+    width:/*520px*/60%;
+  }
+  .blog article {
+    width:20%;
+  }
+  .artist-flex {
+    display:flex;
+  }
+  .artists-homepage article/*, .list-artists article*/ {
+    height: 18em;
+  }
+  .button-archive {
+    width:20%;
+    margin:20px auto 40px;
+  }
+  .content-article {
+    width:80%;
+    margin: 0 auto;
+  }
+  .img-illu, .video {
+      min-height: 375px;
+      height: 100%;
+    }
+    .article-duo {
+      font-size: 22px;
+      margin-bottom:40px;
+    }
+    .dday {
+      width: 80%;
+      margin:0 auto;
+      font-size: 32px;
+      color:#FFCC00;
+    }
+    .dday span {
+      font-size: 44px;
+    }
+}
+/*-------------------------------------------------
+---------------------------------------------------*/
+@media screen and (min-width: 1440px) {
+  /*.affiche {
+    top:235px;
+  }*/
+  .festinfo {
+    bottom:6vh;
+  }
+  .festinfo .date {
+    font-size:36px;
+  }
+  .festinfo .city {
+    font-size:24px;
+    margin-top:20px;
+  }
+  .logo-header h1 img {
+    width:/*640px*/70%;
+  }
+  .artist, #day2 .artist {
+    font-size:50px;
+    line-height: 38px;
+  }
+  .date, #day2 .date {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom:24px;
+  }
+  .item-logo {
+    top: -14vw;
+  }
+  .img-illu, .video {
+      min-height: 425px;
+      height: 100%;
+  }
+}
+
+/*-------------------------------------------------
+---------------------------------------------------*/
+@media screen and (min-width: 1920px) {
+  .img-illu, .video {
+      min-height: 455px;
+      height: 100%;
+  }
+  .article-duo {
+    margin-bottom:60px;
+  }
 }
