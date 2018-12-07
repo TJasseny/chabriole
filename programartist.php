@@ -8,8 +8,8 @@
 <?php if ( ! is_home() && ! is_front_page() ) : ?>
   <div class="page-header program-header">
     <h1 class="rouge"><?php single_post_title();?></h1>
-    <div class="page-header" id="container-image-header" >
-      <img  class="header-image" src="<?php echo chabriole_get_featured_image();?>" alt="">
+    <div class="page-header" id="container-image-header" style="background-image: url('<?php echo chabriole_get_featured_image();?>')">
+      <!--<img  class="header-image" src="<?php //echo chabriole_get_featured_image();?>" alt="">-->
       <div class="page-header-overlay"></div>
     </div>
   <?php endif; ?>
@@ -21,6 +21,10 @@
   $jourfest = get_field('jourfest');
   $nombre_artist_2 = get_field('nombre_artiste_jour_2', 172);
   $date_jour_1 = get_field('date_jour_1', 172);
+//$dateformatstring = "l d F Y";
+//  $unixtimestamp = strtotime(get_field('date_jour_1', 172));
+
+//  echo date_i18n($dateformatstring, get_field('date_jour_1', 172));
   $date_jour_2 = get_field('date_jour_2', 172);
   $sur3jour = false;
    if ($nombre_artist_2 > 0) {

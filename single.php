@@ -13,8 +13,8 @@
 get_header(); ?>
 <div class="page-header">
     <h1><?php the_title();?></h1>
-<div class="page-header" id="container-image-header" >
-  <img  class="header-image" src="<?php echo chabriole_get_featured_image();?>" alt="">
+    <div class="page-header" id="container-image-header" style="background-image: url('<?php echo chabriole_get_featured_image();?>')">
+      <!--<img  class="header-image" src="<?php //echo chabriole_get_featured_image();?>" alt="">-->
 <div class="page-header-overlay"></div>
 </div>
 </div>

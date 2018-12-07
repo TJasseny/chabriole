@@ -8,8 +8,7 @@
 <?php if ( ! is_home() && ! is_front_page() ) : ?>
 <div class="page-header program-header">
     <h1 class="rouge"><?php single_post_title();?></h1>
-<div class="page-header" id="container-image-header" >
-  <img  class="header-image" src="<?php echo chabriole_get_featured_image();?>" alt="">
+    <div class="page-header" id="container-image-header" style="background-image: url('<?php echo chabriole_get_featured_image();?>')">
 <div class="page-header-overlay"></div>
 </div>
 <?php endif; ?>

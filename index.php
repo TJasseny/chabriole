@@ -17,8 +17,8 @@ get_header();
 <div class="page-header">
     <h1><?php single_post_title();?></h1>
 <?php if ( get_header_image() ) : ?>
-<div class="page-header" id="container-image-header" >
-  <img  class="header-image" src="<?php echo chabriole_get_featured_image();?>" alt="">
+  <div class="page-header" id="container-image-header" style="background-image: url('<?php echo chabriole_get_featured_image();?>')">
+    <!--<img  class="header-image" src="<?php //echo chabriole_get_featured_image();?>" alt="">-->
 <div class="page-header-overlay"></div>
 </div>
 <?php endif;
@@ -62,19 +62,22 @@ endif; ?>
       </a>
     </article>
   <?php endwhile; ?>
-  <div class="chab-pagination">
+</div>
+<div class="chab-pagination">
 <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
 </div>
 <?php else : ?>
   <div class="blog-end">
     <h2>Au bout du fil !</h2>
     <p>Vous avez parcourus la totalité du fil d'actualités, vous devez être incollable sur le festival !</p>
-    <div class="chab-pagination">
-  <div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<div class="next-button next jaune"><i class="fa fa-chevron-right"></i></div><p class="label-chag-pagination">Articles<br/>suivants</p>') ?></div>
 </div>
 </div>
-  <?php endif;
-  wp_reset_query();?>
+  <div class="chab-pagination">
+<div><?php posts_nav_link(' ','<div class="next-button previous jaune"><i class="fa fa-chevron-left"></i></div><p class="label-chag-pagination">Articles<br/>précédents</p>','<br>') ?></div>
 </div>
+<?php endif; ?>
+
+<?php wp_reset_query();?>
+
 
 <?php get_footer(); ?>

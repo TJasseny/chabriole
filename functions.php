@@ -224,7 +224,7 @@ function chab_get_artist_details($args) {
               <?php
               // Test de l'existence de contenu dans le champ 'texte_2', si null, on n'affiche pas la suite.
               if (get_field('texte_2') && !empty(get_field('texte_2'))) { ?>
-                <div class="article-duo reverse">
+                <div class="article-duo reverse right">
                   <?php the_field('texte_2'); ?>
                   <?php if (!(get_field('video_2') === '')){ ?>
                     <div class="img-illu">
@@ -258,7 +258,7 @@ function chab_get_artist_details($args) {
                   <?php
                   // Test de l'existence de contenu dans le champ 'texte_4', si null, on n'affiche pas la suite.
                   if (get_field('texte_4') && !empty(get_field('texte_4'))) { ?>
-                    <div class="article-duo reverse">
+                    <div class="article-duo reverse right">
                       <?php the_field('texte_4'); ?>
                       <?php if (!(get_field('video_4') === '')) {?>
                         <div class="img-illu">

@@ -1,5 +1,6 @@
 <!-- Debut section tarifs -->
 <section class="section-tarif">
+  <div class="container-tarif">
   <h3 class="white"><?php the_field('titre_tarifs'); ?></h3>
   <?php if ((get_field('actif_colonne_tarifs_1') === 'true') || (get_field('actif_colonne_tarifs_2') === 'true') || (get_field('actif_colonne_tarifs_3') === 'true')) { ?>
   <div class="colonnes-tarif">
@@ -31,5 +32,6 @@
       <p><?php the_field('texte_ligne_tarifs_col_3_5'); ?></p>
     </div><?php } ?>
   </div>
+</div>
 <?php } ?>
 </section>

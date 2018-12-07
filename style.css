@@ -513,6 +513,8 @@ nav, #menu {
   filter: brightness(60%);
   z-index: 1;
   margin-bottom: 0;
+  background-size: cover;
+background-position: center;
 }
 /* ---------------------------------------------------STYLE PAGES PROGRAMMATION */
 /* ---------------------------------------------------bandeau navigation jours */
@@ -594,7 +596,11 @@ nav, #menu {
 .section-tarif {
   background-color : #FFCC00;
 }
-
+.colonnes-tarif {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 .colonne {
   margin-top: 40px;
 }
@@ -627,6 +633,7 @@ nav, #menu {
 }
 .office-tourisme {
   padding:0!important;
+  margin-bottom:20px;
 }
 
 .office-logo {
@@ -642,6 +649,9 @@ nav, #menu {
 .office-logo img {
   width:100%;
   margin-bottom: 20px;
+}
+.passreg p {
+  font-weight: 900;
 }
 
 /* ---------------------------------------------------- Style page Historique Festivals */
@@ -807,30 +817,50 @@ footer {
     justify-content: space-around;
   }
   .logo-header h1 img {
-    width:/*320px*/70%;
+    width:50%;
   }
 }
 
 /*-------------------------------------------------
 ---------------------------------------------------*/
 @media screen and (min-width: 768px) {
+  .page-header {
+    height:300px;
+  }
+  .page-header h1 {
+    top:323px;
+    font-size:50px;
+  }
 .affiche {
     padding-top:1%;
   }
   .festinfo {
     bottom: /*20px*/6vh;
   }
+  .artist-flex {
+    display:flex;
+    flex-wrap: wrap;
+  }
+  .artist-flex a {
+    width:50%;
+  }
+  .blog-page {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
   .blog article {
     width:30%;
-  }
-  .blog-homepage {
-    display:flex;
+    margin-bottom: 30px;
   }
   .blog-homepage article:nth-child(2) .vignette-image,
   .blog-homepage article:nth-child(3) .vignette-image,
   .blog-homepage article:nth-child(2) .vignette-noimage,
   .blog-homepage article:nth-child(3) .vignette-noimage {
     display:inherit;
+  }
+  .blog-homepage {
+    display:flex;
   }
   .nav-artist, .content-article  {
     display:flex;
@@ -840,7 +870,7 @@ footer {
   }
   .content-article {
     flex-wrap: wrap;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     padding:20px;
     padding-bottom:0;
   }
@@ -896,11 +926,46 @@ background-position: center;
     height:auto;
   }
   .dday {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     color:#FFCC00;
     padding:0;
     padding-right:20px!important;
   }
+/* Style Office Tourisme */
+.office-tourisme .container-tarif, .privas-adresse, .office-small, .passreg {
+  display:flex;
+}
+.office-tourisme .container-tarif {
+  flex-wrap:wrap;
+}
+.privas-adresse p, .passreg p {
+  text-align: center;
+  width:30%;
+}
+.office-small, .privas, .passreg {
+  width:100%;
+}
+.lamastre, .valeyrieux {
+  width:50%;
+}
+.privas .office-logo, .passreg .office-logo {
+  width:30%;
+}
+.privas-adresse {
+  justify-content:space-around;
+  flex-wrap:wrap;
+}
+.passreg .office-logo {
+  margin:0;
+  margin-top: 20px;
+}
+.passreg {
+  justify-content:space-around;
+  align-items: center;
+}
+.passreg p {
+  font-size:24px;
+}
 }
 /*-------------------------------------------------
 ---------------------------------------------------*/
@@ -915,9 +980,35 @@ background-position: center;
     font-size: 18px;
   }
 }
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .flex {
+    flex-wrap:nowrap;
+  }
+  .affiche {
+    padding-top:10%;
+  }
+}
 /*-------------------------------------------------
 ---------------------------------------------------*/
 @media screen and (min-width: 1280px) {
+  /* Style Bouton retour haut de page */
+  .up-button {
+    font-size: 38px;
+      width: 68px;
+      height: 68px;
+      bottom: 56px;
+      right: 56px;
+      box-shadow: 4px 4px 15px 4px;;
+  }
+  .page-header {
+    height:350px;
+  }
+  .page-header h1 {
+    top: 334px;
+    font-size: 90px;
+    right: 60px;
+  }
   .affiche {
       padding-top:10%;
     }
@@ -927,9 +1018,7 @@ background-position: center;
   .logo-header h1 img {
     width:/*520px*/60%;
   }
-  .blog article {
-    width:20%;
-  }
+
   .artist-flex {
     display:flex;
   }
@@ -940,9 +1029,23 @@ background-position: center;
     width:20%;
     margin:20px auto 40px;
   }
-  .content-article {
+  .nav-program {
+    padding:10px 60px;
+    font-size:28px;
+  }
+  .section-title {
+    padding: 15px;
+    padding-left:100px;
+}
+.section-title h2 {
+    font-size:42px;
+}
+  .content-article, .blog-page, .dday, .container-tarif {
     width:80%;
     margin: 0 auto;
+  }
+  .blog article {
+    width:30%;
   }
   .img-illu, .video {
       min-height: 375px;
@@ -953,8 +1056,6 @@ background-position: center;
       margin-bottom:40px;
     }
     .dday {
-      width: 80%;
-      margin:0 auto;
       font-size: 32px;
       color:#FFCC00;
     }
@@ -979,7 +1080,7 @@ background-position: center;
     margin-top:20px;
   }
   .logo-header h1 img {
-    width:/*640px*/70%;
+    width:70%;
   }
   .artist, #day2 .artist {
     font-size:50px;
@@ -1008,5 +1109,8 @@ background-position: center;
   }
   .article-duo {
     margin-bottom:60px;
+  }
+  .artist-flex {
+    flex-wrap: nowrap;
   }
 }

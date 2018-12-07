@@ -1,5 +1,6 @@
 <!-- Début de la section point de ventes -->
 <section>
+  <div class="container-tarif">
   <h3 class="jaune"><?php the_field('titre_section_pdv'); ?></h3>
   <?php if (!(empty(get_field("logo_billeterie_en_ligne_1")))) { ?>
 <p><strong>Billeteries en ligne :</strong></p>
@@ -30,4 +31,5 @@
 </div>
 <?php } ?>
   <?php the_field('texte_pdv'); ?>
+</div>
 </section>
