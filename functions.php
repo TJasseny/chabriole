@@ -3,6 +3,10 @@
 if (!function_exists('chabriole_setup')):
   function chabriole_setup() {
     // Menus
+    add_theme_support('menus');
+      register_nav_menu( 'main_navigation', 'Navigation principale' );
+      register_nav_menu( 'sidebar_navigation', 'Navigation secondaire' );
+      register_nav_menu( 'footer_navigation', 'Navigation tertiaire' );
 
   // Intégration de l'arriere plan personalisable de la NAVIGATION
   $backgroundArgs = array(

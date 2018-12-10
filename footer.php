@@ -9,25 +9,43 @@
 
 wp_footer(); ?>
 <footer>
-
+<div class="flex">
+<div class="logo-footer no-mobile">
+<img src="<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/logo.png" alt="logo du festival">
+</div>
+<div class="nav-footer no-mobile">
+  <?php if (has_nav_menu('main_navigation')){
+      wp_nav_menu(
+          array(
+              'container'         => 'div',
+              'container_class'   => 'footer-menu',
+              'container_id'      => 'menu-footer',
+              'theme_location'    => 'footer_navigation',
+          )
+      );
+  } else {
+      // En cas d'absence de menu
+      wp_nav_menu(array('menu' => 'primary', 'theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string', 'depth' => '1',));
+  } ?>
+</div>
 
 <?php if ((!empty(chab_get_social_link('facebook'))) || (!empty(chab_get_social_link('twitter'))) || (!empty(chab_get_social_link('instagram'))) || (!empty(chab_get_social_link('linkedin'))) || (!empty(chab_get_social_link('mail'))) ) { ?>
     <div class="social-bar">
       <ul>
         <?php if (!empty(chab_get_social_link('facebook'))) { ?>
-          <a href="<?php echo (chab_get_social_link('facebook')); ?>"><li class="facebook"><i class="fa fa-facebook"></i></li></a>
+          <li class="facebook"><a href="<?php echo (chab_get_social_link('facebook')); ?>"><i class="fa fa-facebook"></i></a></li>
         <?php } ?>
       <?php if (!empty(chab_get_social_link('twitter'))) { ?>
-        <a href="<?php echo (chab_get_social_link('twitter')); ?>"><li class="twitter"><i class="fa fa-twitter"></i></li></a>
+        <li class="twitter"><a href="<?php echo (chab_get_social_link('twitter')); ?>"><i class="fa fa-twitter"></i></a></li>
       <?php } ?>
       <?php if (!empty(chab_get_social_link('instagram'))) { ?>
-        <a href="<?php echo (chab_get_social_link('instagram')); ?>"><li class="instagram"><i class="fa fa-instagram"></i></li></a>
+        <li class="instagram"><a href="<?php echo (chab_get_social_link('instagram')); ?>"><i class="fa fa-instagram"></i></a></li>
       <?php } ?>
       <?php if (!empty(chab_get_social_link('linkedin'))) { ?>
-        <a href="<?php echo (chab_get_social_link('linkedin')); ?>"><li class="linkedin"><i class="fa fa-linkedin"></i></li></a>
+        <li class="linkedin"><a href="<?php echo (chab_get_social_link('linkedin')); ?>"><i class="fa fa-linkedin"></i></a></li>
       <?php } ?>
       <?php if (!empty(chab_get_social_link('mail'))) { ?>
-      <a href="mailto:<?php echo (chab_get_social_link('mail')); ?>"><li class="mail"><i class="fa fa-paper-plane"></i></li></a>
+      <li class="mail"><a href="mailto:<?php echo (chab_get_social_link('mail')); ?>"><i class="fa fa-paper-plane"></i></a></li>
     <?php } ?>
     </ul>
 
@@ -38,7 +56,8 @@ wp_footer(); ?>
     <p>Festival organisé par le</p>
     <h5>FJEP St Michel - St Maurice</h5>
     <div class="logo-org">
-    <img src="<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/logofjep.png">
+    <img src="<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/logofjep.png" alt="logo organisateur">
+  </div>
   </div>
   </div>
   <div class="legal">

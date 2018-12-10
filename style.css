@@ -21,11 +21,10 @@ a
 {
   text-decoration: none;
   color: #333232;
-  transition: color 0.3s ease;
 }
- a::active, a:hover {
-   text-decoration: none !important;
-   color: #333232 !important;
+ a:active, a:hover {
+   text-decoration: none!important;
+   color: unset!important;
  }
 
 a:visited {
@@ -124,6 +123,9 @@ h4 {
     z-index:8888;
 }
 /* -------------------------------------------------- STYLE NAVIGATION MOBILE */
+#nav-wide {
+  display:none;
+}
  #logo-mobile {
    position:fixed;
  }
@@ -800,7 +802,9 @@ footer {
   color: #FFF;
   border-radius: 50%;
 }
-
+.social-bar ul li a {
+  color: #fff;
+}
 .facebook {
   background-color: #4267B2;
 }
@@ -816,6 +820,8 @@ footer {
 
 .mail {
   background-color: #FFF;
+}
+.mail a {
   color: #FFCC00!important;
 }
 
@@ -842,7 +848,19 @@ footer {
   padding:30px 20px 10px;
   text-align: right;
 }
-
+.no-mobile {
+  display: none;
+}
+#menu-footer ul {
+  list-style: none;
+  font-weight: 600;
+}
+#menu-footer ul li {
+  margin-top:10px;
+}
+footer .flex {
+  align-items: flex-end;
+}
 /* ----------------------------------------------------------- Style page 404 */
 .fullframe {
   width: 100vw;
@@ -1059,6 +1077,53 @@ background-position: center;
 .info-plan .container-info .flex p {
   width:60%
 }
+/* Style footer */
+footer .flex {
+  flex-wrap:nowrap;
+}
+.social-bar ul {
+  flex-direction: column;
+}
+.social-bar ul li {
+  margin-top:20px;
+}
+.no-mobile {
+  display: inherit;
+}
+}
+@media screen and (min-width: 1025px) {
+  #nav-mobile {
+    display:none;
+  }
+  #nav-wide {
+    display:inherit;
+    position:fixed;
+    top:0;
+    z-index:9999;
+    width:100%;
+  }
+  #menu-wide ul {
+    display:flex;
+    justify-content:space-around;
+    list-style: none;
+    font-weight: 900;
+    font-size: 16px;
+    margin-bottom: 0;
+    align-items: center;
+  }
+  #menu-wide {
+    width:96%;
+    margin-left:4%;
+  }
+  #menu-wide ul li {
+    width:9%;
+    word-break: break-word;
+    text-align: center;
+  }
+  #menu-wide ul li:hover {
+    color: #FFF;
+  }
+
 }
 /*-------------------------------------------------
 ---------------------------------------------------*/
@@ -1070,6 +1135,9 @@ background-position: center;
     top: -16vw;
   }
   .article-duo {
+    font-size: 18px;
+  }
+  #menu-wide ul {
     font-size: 18px;
   }
 }
@@ -1085,6 +1153,9 @@ background-position: center;
 /*-------------------------------------------------
 ---------------------------------------------------*/
 @media screen and (min-width: 1280px) {
+  #menu-wide ul {
+    font-size: 18px;
+  }
   .info-plan .container-info .flex {
     align-items: flex-start;
     margin-top:40px;

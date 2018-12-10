@@ -20,8 +20,26 @@
 
     <body <?php body_class(); ?>>
 <header>
+  <nav id="nav-wide">
+    <div>
+    <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/logo.png" alt="" id="logo-mobile" height="65"/></a>
+</div>
+    <?php if (has_nav_menu('main_navigation')){
+        wp_nav_menu(
+            array(
+                'container'         => 'div',
+                'container_class'   => 'main-menu',
+                'container_id'           => 'menu-wide',
+                'theme_location'    => 'main_navigation',
+            )
+        );
+    } else {
+        // En cas d'absence de menu
+        wp_nav_menu(array('menu' => 'primary', 'theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string', 'depth' => '1',));
+    } ?>
+  </nav>
 <nav id="nav-mobile" class="main">
-  <img src="<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/logo.png" alt="" id="logo-mobile" height="65"/>
+  <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('url'); ?>/wp-content/themes/chabriole/assets/img/logo.png" alt="" id="logo-mobile" height="65"/></a>
 
   <div id="menuToggle">
     <!--
@@ -45,7 +63,22 @@
     Too bad the menu has to be inside of the button
     but hey, it's pure CSS magic.
     -->
-    <?php wp_nav_menu(array('menu' => 'primary', 'theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string', 'depth' => '1',)); ?>
+    <?php
+if (has_nav_menu('main_navigation')){
+    wp_nav_menu(
+        array(
+            'container'         => 'div',
+            'container_class'   => 'main-menu',
+            'container_id'           => 'menu',
+            'theme_location'    => 'main_navigation',
+        )
+    );
+} else {
+    // En cas d'absence de menu
+    wp_nav_menu(array('menu' => 'primary', 'theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string', 'depth' => '1',));
+}
+?>
+    <?php //wp_nav_menu(array('menu' => 'primary', 'theme_location' => 'top', 'menu_id' => 'menu', 'container_class' => 'string', 'depth' => '1',)); ?>
 
 </div>
 </nav>
