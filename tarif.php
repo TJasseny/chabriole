@@ -22,7 +22,7 @@ if (get_field('actif_information') === 'true') {  ?>
 <!-- Debut Section message -->
 <section class="first">
   <div class="container-tarif">
-  <h4 class="jaune"><?php the_field('titre_information'); ?></h4>
+  <h3 class="jaune"><?php the_field('titre_information'); ?></h3>
   <?php the_field('texte_information'); ?>
 </div>
 </section>

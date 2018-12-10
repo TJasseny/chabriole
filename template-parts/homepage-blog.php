@@ -36,7 +36,7 @@
   endif; ?>
   <?php wp_reset_query(); ?>
 </div>
-<a href="<?php echo bloginfo('url'); ?>">
+<a href="<?php echo bloginfo('url'); ?>/actualites">
 <div class="button-archive">
 <p>Voir toutes les actualités</p>
 <div class="next-button">

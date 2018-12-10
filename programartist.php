@@ -80,5 +80,5 @@
 
 ?>
 </section>
-<a href="#"><div class='up-button'><i class="fa fa-chevron-up"></i></div></a>
+<a id="scrollup" href="#top"><div class='up-button'><i class="fa fa-chevron-up"></i></div></a>
 <?php get_footer(); ?>
